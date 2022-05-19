@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="carousel.css">
+
+    <title>Social Media Carousel</title>
+</head>
+<body>
+    <div class="slideshow">
+        <a href="" class="slideshow-link">
+            <img src="2.png" alt="">
+        </a>
+        <a href="" class="slideshow-link">
+            <img src="3.png" alt="">
+        </a>
+        <a href="" class="slideshow-link">
+            <img src="4.png" alt="">
+        </a>
+        <a href="" class="slideshow-link">
+            <img src="5.png" alt="">
+        </a>
+        <a href="" class="slideshow-link">
+            <img src="6.png" alt="">
+        </a>
+    </div>
+
+    <script>
+        const slideshow = document.querySelector('.slideshow')
+        setInterval(() => {
+            const firstIcon = slideshow.firstElementChild
+            firstIcon.classList.add('fade-out')
+            const thirdIcon = slideshow.children[3]
+            thirdIcon.classList.add('light')
+            thirdIcon.previousElementSibling.classList.remove('light')
+
+            setTimeout(() => {
+                slideshow.removeChild(firstIcon)
+                slideshow.appendChild(firstIcon)
+                setTimeout(() => {
+                    firstIcon.classList.remove('faded-out')
+                }, 500)
+            }, 500)
+        }, 3000)
+    </script>
+</body>
+</html>
